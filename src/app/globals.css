@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #111827;
+  --text-color: rgb(221,221,221);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+input, textarea, select {
+  border: none;
+  outline: none;
+}
