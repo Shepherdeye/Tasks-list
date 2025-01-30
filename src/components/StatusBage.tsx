@@ -16,7 +16,7 @@ const StatusBage = ({ status }: StatusPageProps) => {
             "bg-green-400 text-green-950";
 
     return (
-        <div className={`${statusColor} p-2 transition-colors rounded-md w-min font-semibold `}>
+        <div className={`${statusColor} py-1 px-2 w-min rounded-lg font-semibold `}>
             {status}
         </div>
     )

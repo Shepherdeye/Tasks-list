@@ -1,7 +1,7 @@
 import prisma from "@/utils/db";
 import { redirect } from "next/navigation";
 import Link from "next/link"
-
+import { revalidatePath } from "next/cache";
 async function CreateTask(formData: FormData) {
     "use server"
     const title = formData.get("title")?.toString();
@@ -16,7 +16,8 @@ async function CreateTask(formData: FormData) {
             description
         }
     })
-    redirect("/")
+    revalidatePath("/");
+    redirect("/");
 }
 
 
