@@ -9,15 +9,15 @@ const HomePage = async () => {
     <div className='w-full flex flex-col justify-center items-center gap-7 py-10'>
       <div className='w-8/12 flex justify-between items-center' >
         <div className='text-3xl text-cyan-500 font-semibold'>
-          <h3>Home Page</h3>
+          <h3>Tasks List App</h3>
         </div>
-        <div className='bg-green-500 hover:bg-green-600 p-2 text-white rounded font-semibold'>
+        <div className='bg-green-500 hover:bg-green-600 p-2 text-white rounded font-semibold '>
           <Link href={"/task/add-task"}>
             Add Task
           </Link>
         </div>
       </div>
-      <div className='container'>
+      <div className='container my-10'>
         <table className="table w-full text-left mt-5">
           <thead className="border-t-2 border-b-2 border-gray-300 text-xl">
             <tr>
