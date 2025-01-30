@@ -1,3 +1,4 @@
+import StatusBage from '@/components/StatusBage';
 import prisma from '@/utils/db'
 import Link from 'next/link'
 import React from 'react'
@@ -32,7 +33,7 @@ const HomePage = async () => {
                 <td className="p-3">{index + 1}</td>
                 <td>{task.title}</td>
                 <td>
-                  {task.status.toString()}
+                  <StatusBage status={task.status} />
                 </td>
                 <td>
                   <Link
