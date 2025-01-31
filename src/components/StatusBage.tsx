@@ -4,11 +4,6 @@ interface StatusPageProps {
     status: Status;
 }
 
-
-
-
-
-
 const StatusBage = ({ status }: StatusPageProps) => {
 
     const statusColor = status === "TODO" ? "bg-red-400 text-red-950" :
