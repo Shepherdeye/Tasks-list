@@ -1,7 +1,5 @@
-import prisma from "@/utils/db";
-import { redirect } from "next/navigation";
 import Link from "next/link"
-import { revalidatePath } from "next/cache";
+import AddTaskForm from "@/components/AddTaskForm";
 
 
 const AddTask = () => {
@@ -12,7 +10,7 @@ const AddTask = () => {
                     <Link href={"/"}> {"<<"} Go To Home Page</Link>
                 </div>
                 <div className="w-full flex flex-col items-center gap-5 ">
-
+                    <AddTaskForm />
                 </div>
             </div>
         </section>
