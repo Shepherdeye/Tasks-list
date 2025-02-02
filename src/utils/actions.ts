@@ -1,6 +1,6 @@
 "use server"
 import { CreateTaskDto } from './dtos';
-// import { revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache";
 import prisma from "./db";
 import { redirect } from "next/navigation";
 
@@ -16,7 +16,7 @@ export async function createTask({ title, description }: CreateTaskDto) {
         throw new Error("could not create the task, please try again");
     }
 
-    //revalidatePath("/");
+    revalidatePath("/");
     redirect("/");
 }
 
@@ -29,7 +29,8 @@ export async function deleteTask(formData: FormData) {
             where: { id: parseInt(id) }
         })
     } catch {
-        return new Error("failed to delete task")
+        throw new Error("failed to delete task")
     }
-
+    revalidatePath("/");
+    redirect("/");
 }
