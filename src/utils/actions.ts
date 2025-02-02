@@ -19,3 +19,17 @@ export async function createTask({ title, description }: CreateTaskDto) {
     //revalidatePath("/");
     redirect("/");
 }
+
+
+export async function deleteTask(formData: FormData) {
+    const id = formData.get("id")?.toString();
+    if (!id) return;
+    try {
+        await prisma.task.delete({
+            where: { id: parseInt(id) }
+        })
+    } catch {
+        return new Error("failed to delete task")
+    }
+
+}
