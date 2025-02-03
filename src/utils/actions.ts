@@ -62,4 +62,9 @@ export async function updateTask(formData: FormData) {
         throw new Error("failed to update task");
     }
 
+
+    revalidatePath("/");
+    revalidatePath(`/task/${id}`);
+    redirect(`/task/${id}`);
+
 }
