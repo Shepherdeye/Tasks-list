@@ -1,5 +1,5 @@
 "use server"
-import { CreateTaskDto } from './dtos';
+import { CreateTaskDto, UpdateTaskDto } from './dtos';
 import { revalidatePath } from "next/cache";
 import prisma from "./db";
 import { redirect } from "next/navigation";
@@ -36,16 +36,11 @@ export async function deleteTask(formData: FormData) {
     redirect("/");
 }
 
-export async function updateTask(formData: FormData) {
-
-    const id = formData.get("id")?.toString();
-    const title = formData.get("title")?.toString();
-    const description = formData.get("description")?.toString();
-    const status = formData.get("status") as Status;
+export async function updateTask({ id, title, description, status }: UpdateTaskDto) {
 
     if (!id) return;
-    if (!title) return;
-    if (!description) return;
+    if (!title || typeof title !== "string" || title.length < 2) return;
+    if (!description || typeof description !== "string" || description.length < 4) return;
     if (!status) return;
 
     try {
