@@ -1,3 +1,5 @@
+import prisma from '@/utils/db';
+import { notFound } from 'next/navigation';
 import React from 'react'
 
 
@@ -9,9 +11,15 @@ interface EditTaskPageProps {
 
 const EditTaskPage = async ({ params }: EditTaskPageProps) => {
     const taskId = (await params).id;
+    const task = await prisma.task.findUnique({
+        where: { id: parseInt(taskId) }
+    })
+
+    if (!task) notFound();
+
 
     return (
-        <div>EditTaskPage</div>
+        <div>EditTaskPage :{taskId}</div>
     )
 }
 
