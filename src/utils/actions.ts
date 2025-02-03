@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache";
 import prisma from "./db";
 import { redirect } from "next/navigation";
 import { Status } from '@prisma/client';
-import { error } from 'console';
 
 export async function createTask({ title, description }: CreateTaskDto) {
     if (typeof title !== 'string' || title.length < 2) return;
@@ -61,7 +60,6 @@ export async function updateTask(formData: FormData) {
     } catch {
         throw new Error("failed to update task");
     }
-
 
     revalidatePath("/");
     revalidatePath(`/task/${id}`);
