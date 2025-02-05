@@ -6,6 +6,8 @@ import React from 'react'
 // to make  this page dynamic
 export const dynamic = "force-dynamic";
 
+// we can  use  the revalidate and  give  it duration 
+
 
 const HomePage = async () => {
   const tasks = await prisma.task.findMany();
