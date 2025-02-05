@@ -7,6 +7,7 @@ import React from 'react'
 export const dynamic = "force-dynamic";
 
 // we can  use  the revalidate and  give  it duration 
+export const revalidate = 10;
 
 
 const HomePage = async () => {
