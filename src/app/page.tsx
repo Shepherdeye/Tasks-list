@@ -3,6 +3,8 @@ import prisma from '@/utils/db'
 import Link from 'next/link'
 import React from 'react'
 
+export const dynamic = "force-dynamic";
+
 const HomePage = async () => {
   const tasks = await prisma.task.findMany();
   return (
